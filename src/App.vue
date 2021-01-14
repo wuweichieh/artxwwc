@@ -10,6 +10,8 @@
       .title
       .menuFlex
        .menu(v-for="item in menu") {{item.menuTitle}}
+        .menuListContainer
+          .menuList(v-for="i in item.menuList") {{i}}
       .scholarship
       router-view
       .QRcode
@@ -28,10 +30,10 @@ export default {
                 {menuTitle:'清大藝術學院'},
                 {menuTitle:'HOME'},
                 {menuTitle:'NEWS'},
-                {menuTitle:'招生'},
-                {menuTitle:'學士班'},
-                {menuTitle:'師資'},
-                {menuTitle:'科藝賞析'},
+                {menuTitle:'招生' ,menuList: ['〝春之清華〞卓越獎學金 5名' , '學士班 FB粉絲頁' , '2020 招生' , '招生Q&A' , '過往招生資料']},
+                {menuTitle:'學士班' ,menuList: ['學士班簡介' , '學士班課程' , '國際交換' , '藝術學院大樓']},
+                {menuTitle:'師資' ,menuList: ['學士班師資' , '藝設系師資' , '音樂系師資' , '電資院師資']},
+                {menuTitle:'科藝賞析' ,menuList: ['數位文創作品' , '互動藝術作品' , '動力藝術作品' , '聲音藝術作品' , '科技表演藝術']},
                 {menuTitle:'聯絡'}
             ]
       }
@@ -102,6 +104,30 @@ html
   color: #C7A10D
   margin-top: 20px
   margin-bottom: 20px
+  position: relative
+  z-index: 10
+  // display: flex
+  // align-items: center
+.menu:hover
+  .menuListContainer
+    display: block
+.menu:hover
+  cursor: pointer
+.menuListContainer
+  width: 300px
+  display: none
+  position: absolute
+  font-size: 18px
+  color: black
+  background-color: #C7A10D
+  left: 0px
+  top: 74px
+.menuList
+  border: 3px solid #F2F608
+  padding: 20px
+.menuList:hover
+  background-color: #fff
+  opacity: 0.2
 .title
   width: 1600px
   height:120px
